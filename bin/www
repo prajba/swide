@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env supervisor node
 var debug = require('debug')('swide');
 var app = require('../app');
 
