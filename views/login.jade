@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div#container.container
+    form(class='form-login' method='post' role='form')
+      input(id='username' name='username' type='text' class='form-control' placeholder='用户名' required autofocus)
+      input(id='password' name='password' type='password' class='form-control' placeholder='密码' required)
+      button(class='btn btn-lg btn-primary btn-block' type='submit') 登录
+      include alert.jade

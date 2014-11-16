@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div#container.container
+    div#editor
+    script(src='/javascripts/ace/ace.js')
+    script(src='/javascripts/ace/theme-tomorrow_night_eighties.js')
+    script(src='/javascripts/ace/mode-sh.js')
+    script(type='text/javascript').
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/tomorrow_night_eighties");
+      var shMode = require("ace/mode/sh").Mode;
+      editor.getSession().setMode(new shMode());
