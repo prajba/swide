@@ -1,5 +1,15 @@
-data
-node_modules
+# backup files
 *~
+
+# system files
 .DS_Store
+
+# logs
+log
 .log
+
+# dependency directory
+node_modules
+
+# backup data
+data

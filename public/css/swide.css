@@ -2,16 +2,8 @@ body {
     background-color: rgb(240,240,240);
 }
 
-h1 {
-    background-color: #00ff00;
-}
-
-p {
-    background-color: rgb(255,0,255);
-}
-
-.div.alert.alert-error {
-    font-color: rgb(255,0,0);
+.alert-error {
+    color: #FF0000;
 }
 
 .form-login {
