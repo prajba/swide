@@ -1,0 +1,83 @@
+- var types = ['sh', 'bat', 'sql', 'vbs']
+- var machines = ['pm', 'vm', 'vc', 'all']
+- var fields = ['OS', 'DB', 'MDW', 'STORAGE']
+- var osTargets = ['AIX', 'SLES', 'Windows']
+- var aixVersions = ['5.2', '5.3', '6.1', '7.1']
+
+div#attrblock(hidden='true')
+  table#attributes
+    tr
+      td
+        label 脚本名称
+      td
+        input.form-control#scriptname(type='text' required autofocus)
+    tr
+      td
+        label 脚本描述
+      td
+        textarea.form-control#description(type='text' placeholder='请填写脚本描述' required)
+    tr
+      td
+        label 脚本类型
+      td
+        select.form-control#scripttype
+          - each item in types
+            option(value= item)= item
+    tr
+      td
+        label 机器类型
+      td
+        select.form-control#machine
+          - each item in machines
+            option(value= item)= item
+    tr
+      td
+        label 域类型
+      td
+        select.form-control#fieldtype
+          - each item in fields
+            option(value= item)= item
+    tr
+      td
+        label 对象类型
+      td
+        select.form-control#targettype
+          - each item in osTargets
+            option(value= item)= item
+    tr
+      td
+        label 对象版本
+      td
+        select.form-control#targetversion
+          - each item in aixVersions
+            option(value= item)= item
+    tr
+      td
+        label 输入参数
+      td
+        textarea.form-control#paramsinput(type='text' placeholder='请依次填写“名称:描述”并以换行分隔')
+    tr
+      td
+        label 输出参数
+      td
+        textarea.form-control#paramsoutput(type='text' placeholder='请依次填写“类型:名称:描述”并以换行分隔')
+    tr
+      td
+        label 创建者
+      td
+        input.form-control#createdby(type='text' disabled='ture')
+    tr
+      td
+        label 创建时间
+      td
+        input.form-control#createdtime(type='text' disabled='ture')
+    tr
+      td
+        label 修改者
+      td
+        input.form-control#updatedby(type='text' disabled='true')
+    tr
+      td
+        label 修改时间
+      td
+        input.form-control#updatedtime(type='text' disabled='ture')

@@ -10,7 +10,8 @@ var mongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
 
 var settings = require('./settings');
-var routes = require('./routes/index');
+var index = require('./routes/index');
+var rajax = require('./routes/rajax');
 
 var app = express();
 
@@ -69,7 +70,8 @@ app.use(function(req, res, next){
 });
 
 // router
-app.use('/', routes);
+app.use('/', index);
+app.use('/', rajax);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

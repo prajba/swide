@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div#ide
+    label#ide-user(hidden='true')= user
+    include navbar
+    include sidebar
+    include searchbar
+    include searchresult
+    include versionbar
+    include actionbar
+    include attrblock
+    include editor
+block mainjs
+  script(src='/js/angular/angular.js')
+  script(src='/js/ace/ace.js')
+  script(src='/js/ace/theme-tomorrow_night_eighties.js')
+  script(src='/js/ace/mode-sh.js')
+  script(src='/js/ace/mode-batchfile.js')
+  script(src='/js/ace/mode-sql.js')
+  script(src='/js/ace/mode-vbscript.js')
+  script(src='/js/ide/targets.js')
+  script(src='/js/ide/main.js')

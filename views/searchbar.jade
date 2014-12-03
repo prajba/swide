@@ -1,0 +1,13 @@
+- var fields = ['OS', 'DB', 'MDW', 'STORAGE']
+- var osTargets = ['AIX', 'SLES', 'Windows']
+
+div#searchbar
+  select.form-control.searchbar-item#field
+    - each item in fields
+      option(value= item)= item
+  select.form-control.searchbar-item#target
+    - each item in osTargets
+      option(value= item)= item
+  input.form-control.searchbar-item(type='search' placeholder='请输入脚本核心命令' required autofocus)
+  button.btn.btn-lg.btn-inverse.btn-block.searchbar-item(type='submit')
+    span(class='glyphicon glyphicon-search')

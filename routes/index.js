@@ -1,24 +1,24 @@
 var express = require('express');
 var router = express.Router();
-
+var title = '脚本集成开发环境';
 var User = require('../models/user.js');
 
 router.get('/', function(req, res) {
-  res.render('login', { title: '脚本集成开发环境' });
+  res.render('login', { title: title});
 });
 
 router.post('/', function(req, res) {
   User.get(req.body.username, function(err, user) {
     if (!user) {
       req.flash('error', '用户不存在');
-      return res.redirect('/'); }
+      res.redirect('/');
+    }
     if (user.password != req.body.password) {
       req.flash('error', '密码错误');
-      return res.redirect('/');
+      res.redirect('/');
     }
     req.session.user = user;
-    req.flash('success', '登录成功');
-    res.redirect('/search');
+    res.redirect('/swide');
   });
 });
 
@@ -28,8 +28,14 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-router.get('/search', function(req, res) {
-  res.render('search', { title: '脚本集成开发环境' });
+router.get('/swide', function(req, res) {
+  if(req.session.user === null) {
+    res.redirect('/');
+  }
+  res.render('ide', {
+    title: title,
+    user: req.session.user.name
+  });
 });
 
 
