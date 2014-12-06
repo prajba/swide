@@ -45,7 +45,7 @@ var changeTargetVersion = function(selectTarget, selectVersion) {
 
 // sidebar
 var resetSidebar = function() {
-  $('#sidebar>a').css({
+  $('#sidebar a').css({
     'background': '#515151',
     'color': '#BCBCBC',
     'border-bottom': '1px solid #444'
@@ -57,9 +57,9 @@ var formatKeywords = function(rawinput) {
   return $.trim(rawinput);
 };
 var search = function() {
-  var input = formatKeywords($('#searchbar>input').val());
+  var input = formatKeywords($('#searchbar input').val());
   if(input === '') {
-    $('#searchbar>input').val('');
+    $('#searchbar input').val('');
     return;
   }
   var params = {
@@ -132,8 +132,7 @@ var hidePageNewScript = function() {
 
 // init IDE
 var initIDE = function() {
-  $('#sidebar').css('height', $(window).height() - 30);
-  $('#sidebar>a').hover(function() {
+  $('#sidebar a').hover(function() {
     $(this).fadeOut(100);
     $(this).fadeIn(500);
   });
@@ -153,15 +152,16 @@ $(function() {
   $('#field').change(function() {
     changeTarget('#field', '#target');
   });
-  $('#searchbar>button').click(function() {
+  $('#searchbar button').click(function() {
     search();
   });
-  $('#searchbar>input').on('keyup', function(e) {
+  $('#searchbar input').on('keyup', function(e) {
     if(e.keyCode === 13) {
       search();
     }
   });
   $('#newscript').click(function() {
+    hidePageSearch();
     showPageNewScript();
   });
 

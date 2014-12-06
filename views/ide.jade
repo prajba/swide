@@ -1,18 +1,18 @@
 extends layout
 
 block content
-  div#ide
+  div.ide(ng-controller='IDEController')
     label#ide-user(hidden='true')= user
     include navbar
     include sidebar
-    include searchbar
-    include searchresult
-    include versionbar
-    include actionbar
-    include attrblock
-    include editor
+    div.ide-mainbody(ng-controller='SearchController' ng-show='ide.show.search')
+      include searchbar
+      include searchresult
+    form.ide-mainbody(ng-controller='EditController' ng-show='ide.show.edit')
+      include actionbar
+      include attrblock
+      include editor
 block mainjs
-  script(src='/js/angular/angular.js')
   script(src='/js/ace/ace.js')
   script(src='/js/ace/theme-tomorrow_night_eighties.js')
   script(src='/js/ace/mode-sh.js')
@@ -21,3 +21,4 @@ block mainjs
   script(src='/js/ace/mode-vbscript.js')
   script(src='/js/ide/targets.js')
   script(src='/js/ide/main.js')
+  script(src='/js/ide/ng-app.js')
